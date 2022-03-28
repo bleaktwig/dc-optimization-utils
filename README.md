@@ -51,3 +51,8 @@ These are detailed in the following subsections.
 * Decide on how to and if to optimize swimming.
 * Compare reconstruction results via `compareBanks.groovy`.
 * Figure out potential improvements to clustering.
+
+## Making a Pull Request.
+Before making a pull request back to the original repository, remember to delete test files:
+* `validation/advanced-tests/run-profiling-tests.sh`
+After making the pull request, add them back to the repository.
