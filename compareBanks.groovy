@@ -14,8 +14,8 @@ if (args.length < 3) {
     System.out.printf("[floatCompResolution] [nEventMax]\n");
     return 1;
 }
-if (args.length >= 4) resolution = Float.ParseFlot(args[3]);
-if (args.length >= 5) nmax = Integer.ParseInteger(args[4]);
+if (args.length >= 4) resolution = Float.parseFloat(args[3]);
+if (args.length >= 5) nmax = Integer.parseInteger(args[4]);
 
 // First file.
 HipoReader reader0 = new HipoReader();
@@ -93,7 +93,7 @@ while (reader0.hasNext() && reader1.hasNext() && nevent < nmax) {
         }
         if (mismatch) {
             nbadrow++;
-            run.show(); banks[0].show(); banks[1].show();
+            // run.show(); banks[0].show(); banks[1].show();
         }
     }
 }
@@ -103,5 +103,8 @@ System.out.printf("\nAnalyzed %d events. Results:\n", nevent);
 System.out.printf("  * %10d/%10d malformed events.\n", nbadevent, nevent);
 System.out.printf("  * %10d/%10d mismatched rows.\n", nbadrow, nrow);
 System.out.printf("  * %10d/%10d mismatched entries.\n", nbadentry, nentry);
-for (String name : badEntries.keySet())
-    System.out.printf("      %s %s\n", name, badEntries.get(name));
+if (nbadentry > 0) {
+    System.out.printf("Details on mismatches entries:\n");
+    for (String name : badEntries.keySet())
+        System.out.printf("    * %12s: %d\n", name, badEntries.get(name));
+}

@@ -56,3 +56,6 @@ These are detailed in the following subsections.
 Before making a pull request back to the original repository, remember to delete test files:
 * `validation/advanced-tests/run-profiling-tests.sh`
 After making the pull request, add them back to the repository.
+
+## Notes.
+* Garbage collector settings used in CLARA are: `-XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI -XX:+UseJVMCICompiler`.
