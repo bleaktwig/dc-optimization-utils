@@ -14,7 +14,7 @@ if (args.length < 3) {
     System.out.printf("[floatCompResolution] [nEventMax]\n");
     return 1;
 }
-if (args.length >= 4) resolution = Float.ParseFlot(args[3]);
+if (args.length >= 4) resolution = Float.parseFloat(args[3]);
 if (args.length >= 5) nmax = Integer.ParseInteger(args[4]);
 
 // First file.
