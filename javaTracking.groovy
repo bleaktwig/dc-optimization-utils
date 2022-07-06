@@ -26,16 +26,16 @@ if(args.length>=5) {
 
 // create histograms
 GStyle.getH1FAttributes().setOptStat("1111111");
-H1F hi_chi2_all = new H1F("hi_chi2_all", "#chi2", "Counts", 100, 0.0, 1000.0);  
-H1F hi_chi2_bad = new H1F("hi_chi2_bad", "#chi2", "Counts", 100, 0.0, 1000.0); hi_chi2_bad.setLineColor(2); 
-H1F hi_ndf_all = new H1F("hi_ndf_all", "NDF", "Counts", 100, 0.0, 100.0);  
-H1F hi_ndf_bad = new H1F("hi_ndf_bad", "NDF", "Counts", 100, 0.0, 100.0); hi_ndf_bad.setLineColor(2); 
-H1F hi_dpx = new H1F("hi_dpx", "#Deltapx(GeV)", "Counts", 100, -0.1, 0.1);  
-H1F hi_dpy = new H1F("hi_dpy", "#Deltapy(GeV)", "Counts", 100, -0.1, 0.1);  
-H1F hi_dpz = new H1F("hi_dpz", "#Deltapz(GeV)", "Counts", 100, -0.1, 0.1);  
-H1F hi_dvx = new H1F("hi_dvx", "#Deltavx(cm)", "Counts", 100, -0.5, 0.5);  
-H1F hi_dvy = new H1F("hi_dvy", "#Deltavy(cm)", "Counts", 100, -0.5, 0.5);  
-H1F hi_dvz = new H1F("hi_dvz", "#Deltavz(cm)", "Counts", 100, -0.5, 0.5);  
+H1F hi_chi2_all = new H1F("hi_chi2_all", "#chi2", "Counts", 100, 0.0, 1000.0);
+H1F hi_chi2_bad = new H1F("hi_chi2_bad", "#chi2", "Counts", 100, 0.0, 1000.0); hi_chi2_bad.setLineColor(2);
+H1F hi_ndf_all = new H1F("hi_ndf_all", "NDF", "Counts", 100, 0.0, 100.0);
+H1F hi_ndf_bad = new H1F("hi_ndf_bad", "NDF", "Counts", 100, 0.0, 100.0); hi_ndf_bad.setLineColor(2);
+H1F hi_dpx = new H1F("hi_dpx", "#Deltapx(GeV)", "Counts", 101, -0.1, 0.1);
+H1F hi_dpy = new H1F("hi_dpy", "#Deltapy(GeV)", "Counts", 101, -0.1, 0.1);
+H1F hi_dpz = new H1F("hi_dpz", "#Deltapz(GeV)", "Counts", 101, -0.1, 0.1);
+H1F hi_dvx = new H1F("hi_dvx", "#Deltavx(cm)", "Counts", 101, -0.5, 0.5);
+H1F hi_dvy = new H1F("hi_dvy", "#Deltavy(cm)", "Counts", 101, -0.5, 0.5);
+H1F hi_dvz = new H1F("hi_dvz", "#Deltavz(cm)", "Counts", 101, -0.5, 0.5);  
 
 // java8
 HipoReader reader0 = new HipoReader();
@@ -57,7 +57,7 @@ int nbadevent=0;
 int nbadrow=0;
 int nbadentry=0;
 Map<String, Integer> badEntries = new HashMap<>();
-        
+
 while(reader0.hasNext() && reader1.hasNext() && nevent < nmax)
 {
    nevent++;
@@ -76,7 +76,7 @@ while(reader0.hasNext() && reader1.hasNext() && nevent < nmax)
       System.out.println("different number of rows");
 //      run.show(); banks[0].show(); banks[1].show();
       nbadevent++;
-   }	 
+   }
    else {
       for(int i=0; i<banks[0].getRows(); i++) {
           boolean mismatch = false;
@@ -117,8 +117,8 @@ while(reader0.hasNext() && reader1.hasNext() && nevent < nmax)
                  }
                  else {
                     badEntries.put(schema.getElementName(element), 1);
-  	         }	    
-	      }	 
+  	         }
+	      }
           }
 	  if(mismatch) {
 	     nbadrow++;
