@@ -1,0 +1,30 @@
+Average event time: 255.592 ms -> 275.490 ms
+
+### COMPILATION TIMES
+| Method            | Compilation Time (us) |
+|:------------------|----------------------:|
+| SwimToZ           |      9,888 ->   8,371 |
+| RK4               |        366 ->     492 |
+| Ax                |        271 ->     578 |
+| Ay                |        306 ->   1,295 |
+| delAx_deltx       |        290 ->   1,559 |
+| delAx_delty       |        350 ->     577 |
+| delAy_deltx       |        320 ->     645 |
+| delAy_delty       |        348 ->   1,026 |
+| deltx_deltx0_next |        544 ->     246 |
+| deltx_delty0_next |        728 ->     189 |
+| deltx_delq0_next  |        700 ->     212 |
+| delty_deltx0_next |        863 ->     191 |
+| delty_delty0_next |        868 ->     179 |
+| delty_delq0_next  |        768 ->     207 |
+| RK4transport      |    220,316 -> 116,908 |
+
+### HOTSPOTS
+| Method                        | Self Time (ms) |
+| RungeKuttaDoca.RK4transport() | 47,828 ->      |
+| StateVecsDoca.transport()     | 12,917 ->      |
+| Matrix5x5.add()               | 10,302 ->      |
+
+RungeKuttaDoca.computeCovMat() 50,194
+RungeKuttaDoca.RK4transport() 21,888
+Matrix5x5.add() 9,398
